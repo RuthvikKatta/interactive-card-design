@@ -228,7 +228,6 @@ body{
     .cards{
         height: 22rem;
         margin-top: 8rem;
-        transform: scale(1.2);
     }
     .cards .front{
         z-index: 1;
