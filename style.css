@@ -230,11 +230,11 @@ body{
         margin-top: 8rem;
     }
     .cards .front{
-        z-index: 1;
         top: auto;
         bottom: 0px;
     }
     .cards .back{
+        z-index: -2;
         top: 0px;
     }
     .details{
@@ -263,5 +263,18 @@ body{
     .success{
         margin-block: 5rem;
         width: 100%;
+    }
+}
+@media (max-width:450px){
+    .cards{
+        margin-top: 2rem;
+        margin-left: 0.5rem;
+        transform: scale(0.8);
+    }
+    .details{
+        margin-block: 2rem;
+    }
+    .details .myc .c input{
+        width: 86%;
     }
 }
