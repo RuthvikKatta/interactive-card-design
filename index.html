@@ -30,23 +30,23 @@
     </div>
     <div class="number">
       <label for="Number">CARD NUMBER</label>
-      <input type="text" id="Number" class="Number" placeholder="e.g. 1234 5678 9123 0000" oninput="ValidNum();NumInp()">
+      <input type="text" id="Number" class="Number" maxlength="" placeholder="e.g. 1234 5678 9123 0000" oninput="ValidNum();NumInp()">
       <p class="format">Wrong Format,numbers only</p>
     </div>
     <div class="myc">
       <div class="my">
         <label>EXP. DATE (MM/YY)</label>
         <div>
-          <input type="text" id="mm" placeholder="MM" oninput="ValidM()">
-          <input type="text" id="yy" placeholder="YY" oninput="ValidY()">
+          <input type="text" id="mm" placeholder="MM" maxlength="2" oninput="ValidM()">
+          <input type="text" id="yy" placeholder="YY" maxlength="2" oninput="ValidY()">
         </div>
         <p class="exp">Cant' be blank</p>
       </div>
       <div class="c">
         <label for="cvc">CVC</label>
-        <input type="text" id="cvc" placeholder="e.g. 123" onfocus="MYInp()" onblur="CVVInp()" oninput="validCV()">
+        <input type="text" id="cvc" placeholder="e.g. 123" maxlength="3" onfocus="MYInp()" oninput="validCV();CVVInp()">
+        <p class="cvv">Can't be blank</p>
       </div>
-      <p class="cvv">Can't be blank</p>
     </div>
     <div class="confirm">
       <button class="conf">Confirm</button>

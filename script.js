@@ -1,9 +1,18 @@
 function NameInp(){
     var name = document.getElementById('Name').value;
+    if (name ==''){
+        document.getElementById('CardName').innerHTML = 'CARD HOLDER NAME';
+        return; 
+    }
     document.getElementById('CardName').innerHTML = name; 
 }
+/*Card number*/
 function NumInp(){
     var num = document.getElementById('Number').value;
+    if (num == ''){
+        document.getElementById('CardNum').innerHTML = '0000 0000 0000 0000';
+        return;
+    }
     document.getElementById('CardNum').innerHTML = num;
 }
 function ValidNum(){
@@ -43,6 +52,10 @@ function ValidY(){
 function MYInp(){
     var m = document.getElementById('mm').value;
     var y = document.getElementById('yy').value;
+    if (m ==''||y==''){
+        document.getElementById('CardExp').innerHTML = '00/00';
+        return;
+    }
     document.getElementById('CardExp').innerHTML = m+'/'+y;
 }
 function validCV (){
@@ -61,8 +74,14 @@ function CVVInp(){
     document.getElementById('Cvv').innerHTML = c;
 }
 
-document.querySelector('.conf').addEventListener('click',function(){
-    console.log('hi');
-    document.querySelector('.details').classList.add('active');
-    document.querySelector('.succ').classList.add('active');
+document.querySelector('.conf').addEventListener('click',function(){ 
+    var name = document.getElementById('Name').value;
+    var num = document.getElementById('Number').value;
+    var m = document.getElementById('mm').value;
+    var y = document.getElementById('yy').value;
+    var c = document.getElementById('cvc').value;
+    if(name != '' && num != '' && m != '' && y != '' && c != ''){
+        document.querySelector('.details').classList.add('active');
+        document.querySelector('.succ').classList.add('active');
+    }
 })
