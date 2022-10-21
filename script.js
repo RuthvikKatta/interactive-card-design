@@ -8,13 +8,29 @@ function NameInp(){
 }
 /*Card number*/
 function NumInp(){
-    var num = document.getElementById('Number').value;
-    if (num == ''){
+    var num = document.getElementById('Number');
+    if(num.value == ''){
         document.getElementById('CardNum').innerHTML = '0000 0000 0000 0000';
         return;
     }
-    document.getElementById('CardNum').innerHTML = num;
+    num.onkeydown = function () {
+        len = num.value.length;
+        if(len == 4 || len == 9 || len == 14){
+                num.value += ' ';
+        }
+    }
+    num.addEventListener('keydown',function(event){
+        const key = event.key;
+        if (key === "Backspace"){
+            num.value = num.value.substring(0, len);
+        }
+    })
+    var regex = /^[0-9\s]*$/;
+    if (regex.test(num.value)){
+        document.getElementById('CardNum').innerHTML = num.value;
+    }
 }
+
 function ValidNum(){
     var v = document.getElementById('Number').value;
     var regex = /^[0-9\s]*$/;
