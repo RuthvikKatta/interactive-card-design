@@ -6,6 +6,7 @@ function NameInp(){
     }
     document.getElementById('CardName').innerHTML = name; 
 }
+
 /*Card number*/
 function NumInp(){
     var num = document.getElementById('Number');
@@ -13,22 +14,17 @@ function NumInp(){
         document.getElementById('CardNum').innerHTML = '0000 0000 0000 0000';
         return;
     }
-    num.onkeydown = function () {
-        len = num.value.length;
-        if(len == 4 || len == 9 || len == 14){
-                num.value += ' ';
-        }
-    }
-    num.addEventListener('keydown',function(event){
-        const key = event.key;
-        if (key === "Backspace"){
-            num.value = num.value.substring(0, len);
-        }
-    })
     var regex = /^[0-9\s]*$/;
     if (regex.test(num.value)){
-        document.getElementById('CardNum').innerHTML = num.value;
+        document.getElementById('CardNum').innerHTML = format(num.value);
     }
+    if(num.value.length==16){
+        num.value = format(num.value);
+    }
+}
+
+function format(s) {
+    return s.toString().replace(/\d{4}(?=.)/g, '$& ');
 }
 
 function ValidNum(){
@@ -74,7 +70,7 @@ function MYInp(){
     }
     document.getElementById('CardExp').innerHTML = m+'/'+y;
 }
-function validCV (){
+function validCV(){
     var c = document.getElementById('cvc').value;
     if(c==''){
         document.querySelector('.cvv').classList.add('empty');
@@ -87,6 +83,10 @@ function validCV (){
 }
 function CVVInp(){
     var c = document.getElementById('cvc').value;
+    if (c==''){
+        document.getElementById('Cvv').innerHTML = '000';
+        return;
+    }
     document.getElementById('Cvv').innerHTML = c;
 }
 
