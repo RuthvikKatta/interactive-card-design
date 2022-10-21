@@ -18,9 +18,6 @@ function NumInp(){
     if (regex.test(num.value)){
         document.getElementById('CardNum').innerHTML = format(num.value);
     }
-    if(num.value.length==16){
-        num.value = format(num.value);
-    }
 }
 
 function format(s) {
